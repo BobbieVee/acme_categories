@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Acme Category Listings</title>
+		<link rel="stylesheet" href="../public/stylesheets/style.css"/>
+		<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css"/>
+	</head>
+	<body>
+
+		<ul class="nav nav-tabs">
+			<li><a href="/home"> Home</a></li>
+			{% for category in categories %}
+			<li><a href="/categories/{{category}}"> {{category}} </a></li>			
+			{% endfor %}
+		</ul>
+		<div class = 'container'>
+			<div margin-top: 10px>
+				{% block content %}
+					Category content
+					{% endblock %}
+			</div>
+			
+		</div>
+
+	</body>
+</html>	
