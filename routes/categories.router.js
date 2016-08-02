@@ -37,9 +37,6 @@ router.post('/CreateCat', function(req,res){
 router.post('/categories/:category/:product', function(req,res){
 	var newProduct = req.body.product;
 	var category = req.params.category;
-	if (category === 'DELETE'){
-		console.log('Delete!')
-	}
 	database.addProd(category,newProduct);
 	res.redirect('/categories/'+ category);
 })
