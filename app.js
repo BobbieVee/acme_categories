@@ -15,11 +15,6 @@ swig.setDefaults({cache: false});
 var routes = require('./routes/categories.router.js');
 app.use('/', routes);
 
-// app.get('/', function(req,res,next){
-// 	console.log('list products');
-// 	res.render('index', {title: 'Categories'})
-// });
-
 app.listen(process.env.PORT, function(){
 	console.log('listening on ' + process.env.PORT)
 });

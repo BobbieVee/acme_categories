@@ -27,7 +27,7 @@ router.get('/categories/:category', function(req,res){
 	res.render('index',{title: cat + ' Category', categories: categoriesList , products: productsList, showProdForm: true,  category: cat});
 })
 
-router.post('/home/CreateCat', function(req,res){
+router.post('/CreateCat', function(req,res){
 	var newCategory = req.body.category;
 	database.addCat(newCategory);	 
 	res.redirect('/categories/' + newCategory);
@@ -47,7 +47,7 @@ router.post('/categories/:category/:product', function(req,res){
 router.delete('/categories/:category/resource?', function(req, res){
 	var category = req.params.category;
 	database.delCat(category);
-	res.redirect('/home/')
+	res.redirect('/home')
 })
 
 router.delete('/categories/:category/:product/resource?', function(req,res){

@@ -31,10 +31,9 @@ function addProd(category, product){
 };
 
 function delCat(category){
-	console.log('keel the ', category)
 	delete _data[category]
-	console.log(_data)
 };
+
 function delProd(category, product){
 	var index = 0;
 	var removeIndex = 0;
@@ -44,9 +43,8 @@ function delProd(category, product){
 		}
 		index++;
 	});
-	console.log(removeIndex)
 	_data[category].splice(removeIndex,1)
-	console.log(_data[category])
+
 };
 
 
