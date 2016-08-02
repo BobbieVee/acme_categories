@@ -15,12 +15,12 @@
 		</form>
 	{% endif %}
 		<div>
-			{% if showProdForm %}
-			<form action="./{{category}}/resource?_method=delete" method = 'POST'>
-				<button class = 'btn btn-danger' type='submit' >Delete Category
-					
-				</button>
-			</form>
+			{% if showProdForm %}  
+			<div class = "well">
+				<form action="./{{category}}/resource?_method=delete" method = 'POST'>
+					<button class = 'btn btn-danger' type='submit' >	Delete Category
+					</button>
+				</form>
 			
 			<form action="./{{category}}/:product
 		" method ='POST'>
@@ -30,21 +30,23 @@
 			</form>
 
 			{% endif %}
-			<ul>
-				{% for product in products %}
-				<div class = 'row'>
+
+			</div>
+			{% for product in products %}
+			<ul class='list-group'>
+				
+				<div class = 'well' style='background-color: white;'>
 					<div class = 'span8'>{{product}}
 						<form action = './{{category}}/{{product}}/resource?_method=delete' method='POST'>
 							<button class = 'btn btn-danger'> Delete Product</button>
 						</form>
 					</div>
 				</div>
-				
-
-				{% endfor %}
-				
-
 			</ul>
+			{% endfor %}
+				
+
+			
 		</div>
 	
 
