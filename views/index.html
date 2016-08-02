@@ -8,12 +8,45 @@
 	</div>
 	{% if showCatForm %}
 		<form action="CreateCat" method='POST'>
-		<label for=cat_field>Category Name</label>
-		<input name="category" type="text"  value="{{category}} ">
-		<input type="submit" value="Save Category">
+			<label for=cat_field>Category Name</label>
+			<input name="category" type="text"  value="{{category}} ">
+			<button class='btn btn-primary'>Save Category</button>
 			
 		</form>
 	{% endif %}
+		<div>
+			{% if showProdForm %}
+			<form action="./{{category}}/resource?_method=delete" method = 'POST'>
+				<button class = 'btn btn-danger' type='submit' >Delete Category
+					
+				</button>
+			</form>
+			
+			<form action="./{{category}}/:product
+		" method ='POST'>
+				<label for=prod_field>Product Name</label>
+				<input type="text" name="product" value='{{product}}  '>
+				<button class = 'btn btn-primary'>Add Product</button>
+			</form>
+
+			{% endif %}
+			<ul>
+				{% for product in products %}
+				<div class = 'row'>
+					<div class = 'span8'>{{product}}
+						<form action = './{{category}}/{{product}}/resource?_method=delete' method='POST'>
+							<button class = 'btn btn-danger'> Delete Product</button>
+						</form>
+					</div>
+				</div>
+				
+
+				{% endfor %}
+				
+
+			</ul>
+		</div>
+	
 
 
 {% endblock %}
