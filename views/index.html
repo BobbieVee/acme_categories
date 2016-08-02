@@ -26,7 +26,7 @@
 		" method ='POST'>
 				<label for=prod_field>Product Name</label>
 				<input type="text" name="product" value='{{product}}  '>
-				<button class = 'btn btn-primary'>Add Product</button>
+				<button class = 'btn btn-primary' style="float:right;">Add Product</button>
 			</form>
 
 			{% endif %}
@@ -35,9 +35,9 @@
 			{% for product in products %}
 			<ul class='list-group'>
 				
-				<div class = 'well' style='background-color: white;'>
+				<div class = 'well product' >
 					<div class = 'span8'>{{product}}
-						<form action = './{{category}}/{{product}}/resource?_method=delete' method='POST'>
+						<form action = './{{category}}/{{product}}/resource?_method=delete' method='POST' style='float:right;'>
 							<button class = 'btn btn-danger'> Delete Product</button>
 						</form>
 					</div>
