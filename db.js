@@ -8,47 +8,41 @@ var _data = {
 		{name: 'Fruit of the Loom'}
 		]
 };
+module.exports = {
+  getCategories: getCategories,
+  getProducts: getProducts,
+  addCategory: addCategory,
+  addProduct: addProduct,
+  deleteCategory: deleteCategory,
+  deleteProduct: deleteProduct
+};
 
 
-function listCat()	{
+function getCategories()	{
 	return Object.keys(_data);
-};
+}
 
-function listProd(category) {
-	var list =[];
-	_data[category].forEach(function(productObj){
-		 list.push(productObj.name);
-	})
-	return list;
-};
+function getProducts(category) {
+  return _data[category];
+}
 
-function addCat(newCategory)	{
-	_data[newCategory] = []; 
-};
+function addCategory(category)	{
+	_data[category] = []; 
+}
 
-function addProd(category, product){
+function addProduct(category, product){
 	_data[category].push({"name": product});
-};
+}
 
-function delCat(category){
-	delete _data[category]
-};
+function deleteCategory(category){
+	delete _data[category];
+}
 
-function delProd(category, product){
-	var index = 0;
-	var removeIndex = 0;
-	_data[category].forEach(function(prodObj){
-		if (prodObj.name === product){
-			removeIndex = index
-		}
-		index++;
-	});
-	_data[category].splice(removeIndex,1)
-
-};
+function deleteProduct(category, idx){
+  getProducts(category).splice(idx, 1);
+}
 
 
 
-module.exports = {listCat: listCat, addCat: addCat, listProd: listProd, addProd: addProd, delCat: delCat, delProd: delProd}
 
 

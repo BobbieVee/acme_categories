@@ -6,49 +6,11 @@
 		</h2>
 
 	</div>
-	{% if showCatForm %}
-		<form action="CreateCat" method='POST'>
+		<form action="/categories" method='POST'>
 			<label for=cat_field>Category Name</label>
-			<input name="category" type="text"  value="{{category}} ">
+			<input name="category" type="text">
 			<button class='btn btn-primary'>Save Category</button>
-			
 		</form>
-	{% endif %}
 		<div>
-			{% if showProdForm %}  
-			<div class = "well">
-				<form action="./{{category}}/resource?_method=delete" method = 'POST'>
-					<button class = 'btn btn-danger' type='submit' >	Delete Category
-					</button>
-				</form>
-			
-			<form action="./{{category}}/:product
-		" method ='POST'>
-				<label for=prod_field>Product Name</label>
-				<input type="text" name="product" value='{{product}}  '>
-				<button class = 'btn btn-primary' style="float:right;">Add Product</button>
-			</form>
-
-			{% endif %}
-
-			</div>
-			{% for product in products %}
-			<ul class='list-group'>
-				
-				<div class = 'well product' >
-					<div class = 'span8'>{{product}}
-						<form action = './{{category}}/{{product}}/resource?_method=delete' method='POST' style='float:right;'>
-							<button class = 'btn btn-danger'> Delete Product</button>
-						</form>
-					</div>
-				</div>
-			</ul>
-			{% endfor %}
-				
-
-			
-		</div>
-	
-
 
 {% endblock %}
