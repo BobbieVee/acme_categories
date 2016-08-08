@@ -10,9 +10,12 @@
 
 		<ul class="nav nav-tabs" style='margin-bottom: 10px'>
 			<li {% if !category %} class='active' {% endif %}><a href="/"> Home</a></li>
-			{% for _category in categories %}
-        <li {% if category === _category %} class='active' {% endif %}>
-          <a href="/categories/{{_category}}"> {{_category}} </a>
+
+			{% for category in categories %}
+        <!-- <li {% if category === _category %} class='active' {% endif %}> -->
+        <li>
+
+          <a href="/categories/{{category.id}}"> {{category.name}} </a>
         </li>			
 			{% endfor %}
 		</ul>

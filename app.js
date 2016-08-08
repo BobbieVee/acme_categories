@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var client = require('./db/' );
 
 var swig = require('swig');
 
@@ -14,8 +15,16 @@ app.engine('html',swig.renderFile);
 app.set('view engine', 'html');
 swig.setDefaults({cache: false});
 
+
+
 app.get('/', function(req, res){
-	res.render('index',{title: "Welcome to Acme Categories", categories: require('./db').getCategories() });
+	client.query('select name, id from categories',function(err, results){
+		if(err) throw err;
+		var categories = results.rows;
+		console.log(categories);
+		res.render('index',{title: "Welcome to Acme Categories", categories: categories });
+	});
+	
 });
 app.use('/categories', require('./routes/categories'));
 
