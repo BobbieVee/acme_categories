@@ -1,5 +1,0 @@
-
-
-insert into products (id, name, cat_id) values (DEFAULT, 'Hanes', 2);
-
-insert into categories (id, category) values (DEFAULT, 'UnderWear');
