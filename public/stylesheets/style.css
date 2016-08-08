@@ -14,3 +14,10 @@ li {
 .prodAddBtn{
 	float: right;
 }
+
+.deleteCat{
+	float: right;
+}
+h1 {
+	color: red;
+}

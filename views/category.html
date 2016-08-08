@@ -1,14 +1,18 @@
 {% extends './layout.html' %}
 
 {% block content %}
-<div>
-    <h2>
+<div class = 'well'>
+    <h1>
       {{title}}
-    </h2>
+    </h1>
 
-  </div>
+    <form class='deleteBtn' action='/categories/{{categoryId}}?_method=DELETE' method='POST'>
+      <button class='btn btn-danger '> Delete Category</button>
+  </form>
+
+</div>
 <div class='well'>
-  <form method='POST' action='/categories/{{category}}/products'>
+  <form method='POST' action='/categories/{{categoryId }}/products'>
     <div class='form-group'>
     <input placeholder='add a product' class='form-control' name='name' />
     </div>
@@ -16,10 +20,10 @@
   </form>
 </div>
 <ul class='list-group'>
-  {% for idx, product in products %}
+  {% for product in products %}
     <li class='list-group-item'>
-      {{ product.name }}
-      <form action='/categories/{{category}}/products/{{idx}}?_method=DELETE' method='POST'>
+      {{ product.name }} 
+      <form action='/categories/{{categoryId}}/products/{{product.id}}?_method=DELETE' method='POST'>
         <button class='btn btn-danger' type='submit'>Delete</button>
       </form>
     </li>

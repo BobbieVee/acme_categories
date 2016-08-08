@@ -21,7 +21,6 @@ app.get('/', function(req, res){
 	client.query('select name, id from categories',function(err, results){
 		if(err) throw err;
 		var categories = results.rows;
-		console.log(categories);
 		res.render('index',{title: "Welcome to Acme Categories", categories: categories });
 	});
 	
